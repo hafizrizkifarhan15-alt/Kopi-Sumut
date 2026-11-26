@@ -359,17 +359,17 @@ elif menu == "Statistik Kecamatan":
 elif menu == "Data Kecamatan":
 
     df_data = read_data("""
-        SELECT
-            kode_daerah,
-            nama_kecamatan,
-            kabupaten,
-            luas_lahan,
-            hasil_produksi,
-            wilayah_sumber,
-            updated_at
-        FROM produksi_pusat
-        ORDER BY kabupaten, kode_daerah
-    """)
+      df_data = read_data("""
+    SELECT
+        kode_daerah,
+        nama_kecamatan,
+        kabupaten,
+        luas_lahan,
+        hasil_produksi,
+        updated_at
+    FROM produksi_pusat
+    ORDER BY kabupaten, kode_daerah
+""")
 
     st.subheader("Data Kopi per Kecamatan Sumatera Utara")
 
