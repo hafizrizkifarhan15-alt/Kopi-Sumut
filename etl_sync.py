@@ -99,4 +99,10 @@ if __name__ == "__main__":
     # Sinkronisasi Kabupaten Dairi
     sync_source("DB_DAIRI", "DB Dairi")
 
+    # Sinkronisasi Kabupaten Humbang Hasundutan
+    sync_source(
+        "DB_HUMBANG_HASUNDUTAN",
+        "Humbang Hasundutan"
+    )
+
     print("SINKRONISASI SELESAI")
