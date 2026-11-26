@@ -28,7 +28,7 @@ jobs:
       DB_SIMALUNGUN: ${{ secrets.DB_SIMALUNGUN }}
       DB_MANDAILING_NATAL: ${{ secrets.DB_MANDAILING_NATAL }}
       DB_PUSAT: ${{ secrets.DB_PUSAT }}
-    steps:
+steps:
       - name: Download repository
         uses: actions/checkout@v4
 
