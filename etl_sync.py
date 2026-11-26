@@ -2,20 +2,20 @@ import os
 import psycopg2
 
 
-def sync_karo():
-    source_url = os.getenv("DB_KARO")
+def sync_source(source_env, source_name):
+    source_url = os.getenv(source_env)
     target_url = os.getenv("DB_PUSAT")
 
     if not source_url or not target_url:
         raise RuntimeError(
-            "Secret DB_KARO atau DB_PUSAT belum tersedia."
+            f"Secret {source_env} atau DB_PUSAT belum tersedia."
         )
 
     source_conn = None
     target_conn = None
 
     try:
-        # Koneksi database sumber: DB Karo
+        # Koneksi database sumber
         source_conn = psycopg2.connect(
             source_url,
             sslmode="require",
@@ -33,15 +33,16 @@ def sync_karo():
                     updated_at
                 FROM public.produksi
             """)
+
             data = cursor.fetchall()
 
-        print(f"Data ditemukan dari DB Karo: {len(data)} baris")
+        print(f"{source_name}: {len(data)} data ditemukan.")
 
         if not data:
-            print("Tidak ada data untuk disinkronkan.")
+            print(f"{source_name}: Tidak ada data untuk disinkronkan.")
             return
 
-        # Koneksi database tujuan: Data Warehouse pusat
+        # Koneksi database pusat
         target_conn = psycopg2.connect(
             target_url,
             sslmode="require",
@@ -70,7 +71,10 @@ def sync_karo():
 
         target_conn.commit()
 
-        print(f"Berhasil menyinkronkan {len(data)} baris DB Karo.")
+        print(
+            f"{source_name}: Berhasil menyinkronkan "
+            f"{len(data)} data ke database pusat."
+        )
 
     except Exception:
         if target_conn is not None:
@@ -86,4 +90,13 @@ def sync_karo():
 
 
 if __name__ == "__main__":
-    sync_karo()
+
+    print("MEMULAI SINKRONISASI KOPI SUMATERA UTARA")
+
+    # Sinkronisasi Kabupaten Karo
+    sync_source("DB_KARO", "DB Karo")
+
+    # Sinkronisasi Kabupaten Dairi
+    sync_source("DB_DAIRI", "DB Dairi")
+
+    print("SINKRONISASI SELESAI")
