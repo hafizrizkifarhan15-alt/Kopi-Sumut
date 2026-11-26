@@ -424,7 +424,6 @@ elif menu == "Data Kecamatan":
                 "kabupaten": "Kabupaten",
                 "luas_lahan": "Luas Lahan (ha)",
                 "hasil_produksi": "Produksi (ton)",
-                "wilayah_sumber": "Wilayah Sumber",
                 "updated_at": "Diperbarui"
             }),
             use_container_width=True,
