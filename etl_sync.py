@@ -93,34 +93,32 @@ if __name__ == "__main__":
 
     print("MEMULAI SINKRONISASI KOPI SUMATERA UTARA")
 
-    # Kabupaten Karo
     sync_source("DB_KARO", "DB Karo")
-
-    # Kabupaten Dairi
     sync_source("DB_DAIRI", "DB Dairi")
 
-    # Kabupaten Humbang Hasundutan
     sync_source(
         "DB_HUMBANG_HASUNDUTAN",
         "Humbang Hasundutan"
     )
 
-    # Kabupaten Tapanuli Utara
     sync_source(
         "DB_TAPANULI_UTARA",
         "Tapanuli Utara"
     )
 
-    # Kabupaten Tapanuli Selatan
     sync_source(
         "DB_TAPANULI_SELATAN",
         "Tapanuli Selatan"
     )
 
-    # Kabupaten Simalungun
     sync_source(
         "DB_SIMALUNGUN",
         "Simalungun"
+    )
+
+    sync_source(
+        "DB_MANDAILING_NATAL",
+        "Mandailing Natal"
     )
 
     print("SINKRONISASI SELESAI")
