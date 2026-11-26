@@ -105,4 +105,10 @@ if __name__ == "__main__":
         "Humbang Hasundutan"
     )
 
+    # Sinkronisasi Kabupaten Tapanuli Utara
+    sync_source(
+        "DB_TAPANULI_UTARA",
+        "Tapanuli Utara"
+    )
+
     print("SINKRONISASI SELESAI")
