@@ -18,7 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
-    env:
+   env:
+      DATAWAREHOUSE_URL: ${{ secrets.DB_PUSAT }}
       DB_KARO: ${{ secrets.DB_KARO }}
       DB_DAIRI: ${{ secrets.DB_DAIRI }}
       DB_HUMBANG_HASUNDUTAN: ${{ secrets.DB_HUMBANG_HASUNDUTAN }}
@@ -27,7 +28,6 @@ jobs:
       DB_SIMALUNGUN: ${{ secrets.DB_SIMALUNGUN }}
       DB_MANDAILING_NATAL: ${{ secrets.DB_MANDAILING_NATAL }}
       DB_PUSAT: ${{ secrets.DB_PUSAT }}
-
     steps:
       - name: Download repository
         uses: actions/checkout@v4
