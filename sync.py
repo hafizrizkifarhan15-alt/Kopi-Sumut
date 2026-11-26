@@ -359,7 +359,6 @@ elif menu == "Statistik Kecamatan":
 elif menu == "Data Kecamatan":
 
     df_data = read_data("""
-      df_data = read_data("""
     SELECT
         kode_daerah,
         nama_kecamatan,
