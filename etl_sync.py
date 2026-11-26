@@ -117,4 +117,10 @@ if __name__ == "__main__":
         "Tapanuli Selatan"
     )
 
+    # Kabupaten Simalungun
+    sync_source(
+        "DB_SIMALUNGUN",
+        "Simalungun"
+    )
+
     print("SINKRONISASI SELESAI")
